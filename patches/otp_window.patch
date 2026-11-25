@@ -1,0 +1,13 @@
+diff --git a/NightscoutService/NightscoutServiceKit/OTPManager.swift b/NightscoutService/NightscoutServiceKit/OTPManager.swift
+index 3d51b72..1c44058 100644
+--- a/NightscoutService/NightscoutServiceKit/OTPManager.swift
++++ b/NightscoutService/NightscoutServiceKit/OTPManager.swift
+@@ -77,7 +77,7 @@ public class OTPManager {
+     let maxOTPsToAccept: Int
+     
+     public static var defaultTokenPeriod: TimeInterval = 30
+-    public static var defaultMaxOTPsToAccept = 2
++    public static var defaultMaxOTPsToAccept = 10 // AMAL LOOP: 5-min window (matches 5-min command expiration) for delayed APNs delivery
+     
+     public init(secretStore: OTPSecretStore = KeychainManager(), nowDateSource: @escaping () -> Date = {Date()}, tokenPeriod: TimeInterval = OTPManager.defaultTokenPeriod, maxOTPsToAccept: Int = OTPManager.defaultMaxOTPsToAccept) {
+         self.secretStore = secretStore
